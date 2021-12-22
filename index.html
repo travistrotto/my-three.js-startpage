@@ -24,6 +24,7 @@
             display: flex;
             width: 100vw;
             height: 100vh;
+            
         }
         .frame>* {
             flex: 1 1 50%;
@@ -33,6 +34,7 @@
             right: 0;
             bottom: 0;
             padding: 0.5em;
+            
         }
         #editor {
             font-family: monospace;
@@ -40,7 +42,19 @@
             background: #444444;
             color: white;
             flex-basis: 25%;
+            
         }
+        @media screen and (max-width : 480px) {
+                #editor {
+                font-family: monospace;
+                padding: 1.5em;
+                background: #444444;
+                color: white;
+                flex-basis: 25%;
+                width: 40%;
+            }
+        }
+
         #content a {
 		margin: 10px;
         }
@@ -51,6 +65,7 @@
             position: absolute;
             bottom: 1vh;
             margin: auto;
+            text-overflow: wrap;
         }   
         editor, a {
             color: #FFFFFF;
@@ -85,7 +100,8 @@
             <div id="content">
                 <!-- first link table -->
                 <table>
-                    <thead>ソーシャルメディア</thead>
+                    <!-- <thead>ソーシャルメディア</thead> -->
+                    <thead>Bookmarks</thead>
                     <tbody>
                         <tr>
                             <td><a href="https://mail.google.com/" target="_blank">Gmail</a></td>
@@ -106,7 +122,8 @@
                 </table><br>
                 <!-- second link table -->
                 <table>
-                    <thead> 日本</thead>
+                    <!-- <thead> 日本</thead> -->
+                    <thead> Apple</thead>
                     <tbody>
                         <tr>
                             <td><a href="https://apple.com/" target="_blank">Store</a></td>
@@ -122,12 +139,13 @@
 
                  <!-- third link table -->
                  <table>
-                    <thead>コーディング</thead>
+                    <!-- <thead>コーディング</thead> -->
+                    <thead>Coding</thead>
                     <tbody>
                         <tr>
                             <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">three.js</a></td>
                             <td><a href="https://threejs.org/editor/" target="_blank">3D</a></td>
-                            <td><a href="https://drive.google.com/" target="_blank">Drive</a></td>
+                            <!-- <td><a href="https://drive.google.com/" target="_blank">Drive</a></td> -->
                         </tr>
                     </tbody>
                 </table><br>
@@ -137,12 +155,12 @@
                     <span id='ct' style="color:white;font-size: 11px;"></span>
                     <!-- <hr> -->
            
-                <p class="disclaimer">Click the buttons below. The only thing changing is CSS. The window size is not changing so using <code>window.addEventListener('resize', ...)</code> would fail</p>
+                <!-- <p class="disclaimer">Click the buttons below. The only thing changing is CSS. The window size is not changing so using <code>window.addEventListener('resize', ...)</code> would fail</p> -->
             </section>
             <div id="ui">
-                <button type="button" data-size="5%">small</button>
+                <!-- <button type="button" data-size="5%">small</button>
                 <button type="button" data-size="50%">medium</button>
-                <button type="button" data-size="10%">large</button>
+                <button type="button" data-size="10%">large</button> -->
             </div>
         </div>
         <div id="result">
@@ -155,7 +173,8 @@
     import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
       
     const lighterColor = '#4A4A4A'
-    const generate = Math.round((Math.random() * 3) + 1)  
+    const generate = Math.round((Math.random() * 3) + 1)
+    const rand2 = Math.round((Math.random() * 40) + 140) 
 
     // Renderer & Canvas
     const renderer = new THREE.WebGLRenderer({alpha: true, canvas: document.querySelector("canvas")});
