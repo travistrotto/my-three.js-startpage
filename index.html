@@ -73,7 +73,7 @@
             text-overflow: wrap;
         }   
         editor, a {
-            color: #FFFFFF;
+            color: #959696;
             font-size: small;
         }
         a:hover {
@@ -163,7 +163,7 @@
                     <th>もの</th>
                     <tbody>
                         <tr>
-                            <td><a href="https://response.apple.com" target="_blank">YouTube</a></td>
+                            <td><a href="https://youtube.com" target="_blank">YouTube</a></td>
                             <td><a href="https://play.pokemonshowdown.com" target="_blank">Showdown</a></td>
                             <td><a href="http://calc.pokemonshowdown.com" target="_blank">Calc</a></td>
                         </tr>
@@ -204,7 +204,6 @@
     // const lighterColor = '#4A4A4A'
     const lighterColor = '#969696'
     const generate = Math.round((Math.random()+ 0.5)*2)
-    console.log(generate)
     const rand2 = Math.round((Math.random() * 40) + 140) 
 
     // Renderer & Canvas
@@ -213,16 +212,17 @@
     // Scene
     const scene = new THREE.Scene();
     
-    // Object
-    // const geometry = new THREE.BoxGeometry(200, 200, 200);
-    
     // Shapes 1, 2
     const geometry = new THREE.TorusKnotGeometry( 180, 50, 200, 200, generate);
-    const material = new THREE.MeshBasicMaterial({ color: lighterColor })
+    
+    // Transparent material
+    // const material = new THREE.MeshBasicMaterial({ color: lighterColor })
+    // material.opacity = 0.1
 
     // Cool material
-    // const material = new THREE.MeshNormalMaterial()
-    // material.flatShading = true
+    const material = new THREE.MeshNormalMaterial()
+    material.flatShading = true
+    material.opacity = 0.2
 
     // Shapes 3
     const geometry2 = new THREE.SphereGeometry(30, 30, 30)
@@ -247,7 +247,6 @@
     }
 
     // Transparency 
-    material.opacity = 0.1
     material.transparent = true
 
     const mesh = new THREE.Mesh(geometry, material);
