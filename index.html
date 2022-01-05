@@ -184,7 +184,8 @@
     <script type="module">
     import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
       
-    const lighterColor = '#4A4A4A'
+    // const lighterColor = '#4A4A4A'
+    const lighterColor = '#969696'
     const generate = Math.round((Math.random()+ 0.5)*2)
     // const generate = 3
     const rand2 = Math.round((Math.random() * 40) + 140) 
@@ -199,28 +200,32 @@
     // const geometry = new THREE.BoxGeometry(200, 200, 200);
     
     // Shapes 1, 2
-    const geometry = new THREE.TorusKnotGeometry( 180, 40, 100, 16, generate);
+    const geometry = new THREE.TorusKnotGeometry( 180, 50, 200, 200, generate);
     const material = new THREE.MeshBasicMaterial({ color: lighterColor })
 
+    // Cool material
+    // const material = new THREE.MeshNormalMaterial()
+    // material.flatShading = true
+
+
     // Shapes 3
-    // Donuts
-    const geometry2 = new THREE.SphereGeometry(40, 40, 40)
+    const geometry2 = new THREE.SphereGeometry(30, 30, 30)
     for(let i = 0; i < 144; i++)
     {
-        const donut = new THREE.Mesh(geometry2, material)
-        donut.position.x = (Math.random() - 0.5) * 300
-        donut.position.y = (Math.random() - 0.5) * 300
-        donut.position.z = (Math.random() - 0.5) * 300
+        const orb = new THREE.Mesh(geometry2, material)
+        orb.position.x = (Math.random() - 0.5) * 350
+        orb.position.y = (Math.random() - 0.5) * 350
+        orb.position.z = (Math.random() - 0.5) * 350
         
-        // donut.rotation.z = 3
-        donut.rotation.x = Math.random() * Math.PI 
-        donut.rotation.y = Math.random() * Math.PI
+        // orb.rotation.z = 3
+        orb.rotation.x = Math.random() * Math.PI 
+        orb.rotation.y = Math.random() * Math.PI
 
         const scale = Math.random() + 0.20
-        donut.scale.set(scale, scale, scale)
+        orb.scale.set(scale, scale, scale)
         if(generate == 3 ){
             
-            scene.add(donut);
+            scene.add(orb);
             
         }
     }
@@ -230,9 +235,13 @@
 
 
     // Transparency 
-    material.opacity = 0.5
+    material.opacity = 0.2
     material.transparent = true
+ 
     const mesh = new THREE.Mesh(geometry, material);
+    
+   
+
     
 
     if(generate < 3){
@@ -281,7 +290,7 @@
         camera.position.y =  Math.sin(elapsedTime) * 10
         camera.position.z =  Math.cos(elapsedTime) * 10
     }
-        // camera.lookAt(donut)
+        // camera.lookAt(orb)
         // camera.position.z +=  Math.sin(elapsedTime/3) + 2
 
         // Render
