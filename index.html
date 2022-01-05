@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>three.js simple startpage</title>
-    
-    <!-- CSS Styles -->
+`    <!-- CSS Styles -->
     <style>
         html {
             box-sizing: border-box;
@@ -127,37 +126,39 @@
                         </tr>
                     </tbody>
                 </table><br>
-                <!-- second link table -->
                 <table>
                     <!-- <th> 日本</th> -->
+                    
                     <th>Apple</th>
                     <tbody>
                         <tr>
                             <td><a href="https://apple.com/" target="_blank">Store</a></td>
                             <td><a href="https://people.apple.com" target="_blank">People</a></td>
+                            <td><a href="https://response.apple.com" target="_blank">Response</a></td>
                         </tr>
                         <tr>
-                            <td><a href="https://mypage.apple.com" target="_blank">myPage</a></td>
-                            <td><a href="https://response.apple.com" target="_blank">Response</a></td>
                             <td><a href="https://cooljobs.apple.com" target="_blank">Jobs</a></td>
+                            <td><a href="https://mypage.apple.com" target="_blank">myPage</a></td>
                         </tr>
                     </tbody>
                 </table><br>
-
                  <!-- third link table -->
                  <table>
                     <!-- <th>コーディング</th> -->
                     <th>Development</th>
                     <tbody>
                         <tr>
-                            <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">three.js</a></td>
+                            <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">Three.js</a></td>
                             <td><a href="https://threejs.org/editor/" target="_blank">Editor</a></td>
                             <td><a href="https://polyhaven.com/" target="_blank">HDRIs</a></td>
                         </tr>
                         <tr>
                             <td><a href="https://matheowis.github.io/HDRI-to-CubeMap/">CubeMap</a></td>
                             <td><a href="https://github.com/nidorx/matcaps">MatCaps</a></td>
-                            
+                            <td><a href="https://marketplace.visualstudio.com/manage/publishers/travistrotto/extensions/atomic-radiation-light/hub?_a=acquisition">VSCE</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://dev.azure.com/TravisTrotto">Azure</a></td>
                         </tr>
                     </tbody>
                 </table><br>
@@ -187,7 +188,7 @@
     // const lighterColor = '#4A4A4A'
     const lighterColor = '#969696'
     const generate = Math.round((Math.random()+ 0.5)*2)
-    // const generate = 3
+    console.log(generate)
     const rand2 = Math.round((Math.random() * 40) + 140) 
 
     // Renderer & Canvas
@@ -206,7 +207,6 @@
     // Cool material
     // const material = new THREE.MeshNormalMaterial()
     // material.flatShading = true
-
 
     // Shapes 3
     const geometry2 = new THREE.SphereGeometry(30, 30, 30)
@@ -230,20 +230,12 @@
         }
     }
 
-
-
-
-
     // Transparency 
-    material.opacity = 0.2
+    material.opacity = 0.1
     material.transparent = true
- 
+
     const mesh = new THREE.Mesh(geometry, material);
     
-   
-
-    
-
     if(generate < 3){
         scene.add(mesh);
     } 
@@ -290,9 +282,6 @@
         camera.position.y =  Math.sin(elapsedTime) * 10
         camera.position.z =  Math.cos(elapsedTime) * 10
     }
-        // camera.lookAt(orb)
-        // camera.position.z +=  Math.sin(elapsedTime/3) + 2
-
         // Render
         renderer.render(scene, camera)
         window.requestAnimationFrame(tick)
