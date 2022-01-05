@@ -55,8 +55,13 @@
             }
         }
 
+        th, h4 {
+            text-align: left;
+        }
+
         #content a {
 		margin: 10px;
+        text-decoration: none;
         }
         .disclaimer{
             color:#645969
@@ -69,9 +74,11 @@
         }   
         editor, a {
             color: #FFFFFF;
+            font-size: small;
         }
         a:hover {
             background-color: #645969;
+            color: #cbfd03;
         }
         canvas { 
             width: 100%;
@@ -96,12 +103,12 @@
     <!-- Sidebar -->
     <div class="frame">
         <div id="editor">
-            <p>☄︎ Welcome to the Internet</p>
+            <h4> Welcome to the Internet</h4>
             <div id="content">
                 <!-- first link table -->
                 <table>
-                    <!-- <thead>ソーシャルメディア</thead> -->
-                    <thead>Bookmarks</thead>
+                    <!-- <th>ソーシャルメディア</th> -->
+                    <th>Bookmarks</th>
                     <tbody>
                         <tr>
                             <td><a href="https://mail.google.com/" target="_blank">Gmail</a></td>
@@ -122,25 +129,25 @@
                 </table><br>
                 <!-- second link table -->
                 <table>
-                    <!-- <thead> 日本</thead> -->
-                    <thead> Apple</thead>
+                    <!-- <th> 日本</th> -->
+                    <th>Apple</th>
                     <tbody>
                         <tr>
                             <td><a href="https://apple.com/" target="_blank">Store</a></td>
                             <td><a href="https://people.apple.com" target="_blank">People</a></td>
-                            <td><a href="https://mypage.apple.com" target="_blank">myPage</a></td>
                         </tr>
                         <tr>
+                            <td><a href="https://mypage.apple.com" target="_blank">myPage</a></td>
                             <td><a href="https://response.apple.com" target="_blank">Response</a></td>
-                            <td><a href="https://cooljobs.apple.com" target="_blank">  Jobs</a></td>
+                            <td><a href="https://cooljobs.apple.com" target="_blank">Jobs</a></td>
                         </tr>
                     </tbody>
                 </table><br>
 
                  <!-- third link table -->
                  <table>
-                    <!-- <thead>コーディング</thead> -->
-                    <thead>Development</thead>
+                    <!-- <th>コーディング</th> -->
+                    <th>Development</th>
                     <tbody>
                         <tr>
                             <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">three.js</a></td>
@@ -178,7 +185,8 @@
     import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
       
     const lighterColor = '#4A4A4A'
-    const generate = Math.round((Math.random() * 3) + 1)
+    const generate = Math.round((Math.random()+ 0.5)*2)
+    // const generate = 3
     const rand2 = Math.round((Math.random() * 40) + 140) 
 
     // Renderer & Canvas
@@ -189,10 +197,48 @@
     
     // Object
     // const geometry = new THREE.BoxGeometry(200, 200, 200);
+    
+    // Shapes 1, 2
     const geometry = new THREE.TorusKnotGeometry( 180, 40, 100, 16, generate);
     const material = new THREE.MeshBasicMaterial({ color: lighterColor })
+
+    // Shapes 3
+    // Donuts
+    const geometry2 = new THREE.SphereGeometry(40, 40, 40)
+    for(let i = 0; i < 144; i++)
+    {
+        const donut = new THREE.Mesh(geometry2, material)
+        donut.position.x = (Math.random() - 0.5) * 300
+        donut.position.y = (Math.random() - 0.5) * 300
+        donut.position.z = (Math.random() - 0.5) * 300
+        
+        // donut.rotation.z = 3
+        donut.rotation.x = Math.random() * Math.PI 
+        donut.rotation.y = Math.random() * Math.PI
+
+        const scale = Math.random() + 0.20
+        donut.scale.set(scale, scale, scale)
+        if(generate == 3 ){
+            
+            scene.add(donut);
+            
+        }
+    }
+
+
+
+
+
+    // Transparency 
+    material.opacity = 0.5
+    material.transparent = true
     const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    
+
+    if(generate < 3){
+        scene.add(mesh);
+    } 
+    // scene.add(mesh);
       
     // Sizes
     function resizeCanvasToDisplaySize() {
@@ -204,6 +250,7 @@
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
+    
 
     // set render target sizes here
     }
@@ -216,6 +263,8 @@
     // Camera
     const  camera = new THREE.PerspectiveCamera(70, 2, 1, 1000);
     camera.position.z = 400;
+    // camera.position.y = 400;
+
     
     // Animate
     const clock = new THREE.Clock()
@@ -226,6 +275,14 @@
         // Rotate objects
         mesh.rotation.x = .25 * elapsedTime
         mesh.rotation.y = .5 * elapsedTime
+
+        if(generate == 3){
+        camera.position.x =  Math.tan(elapsedTime/4) * 20
+        camera.position.y =  Math.sin(elapsedTime) * 10
+        camera.position.z =  Math.cos(elapsedTime) * 10
+    }
+        // camera.lookAt(donut)
+        // camera.position.z +=  Math.sin(elapsedTime/3) + 2
 
         // Render
         renderer.render(scene, camera)
