@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,42 +11,50 @@
         html {
             box-sizing: border-box;
         }
-        *, *:before, *:after {
+
+        *,
+        *:before,
+        *:after {
             box-sizing: inherit;
         }
-        body { 
+
+        body {
             margin: 0;
             background-color: #444;
-            
-        }
-        .outer {      
 
         }
-        .frame { 
+
+        .outer {}
+
+        .frame {
             display: flex;
             width: 100vw;
             height: 100vh;
-            
+
         }
+
         .frame>* {
             flex: 1 1 50%;
         }
+
         #ui {
             position: absolute;
             right: 0;
             bottom: 0;
             padding: 0.5em;
-            
+
         }
+
         #editor {
             font-family: monospace;
             padding: 1.5em;
             color: white;
             flex-basis: 25%;
-            
+
         }
+
         @media screen and (max-width : 480px) {
-                #editor {
+            #editor {
                 z-index: 2;
                 color: white;
                 flex-basis: 25%;
@@ -53,69 +62,78 @@
         }
 
         @media screen and (max-height : 555px) {
-                .disclaimer {
-                    display: none;
-                }
+            .disclaimer {
+                display: none;
+            }
         }
 
         @media screen and (max-height : 487px) {
-                #ct {
-                    display: none;
-                }
+            #ct {
+                display: none;
             }
+        }
 
-        th, h4 {
+        th,
+        h4 {
             text-align: left;
         }
 
         #content a {
-		margin: 10px;
-        text-decoration: none;
+            margin: 10px;
+            text-decoration: none;
         }
-        .disclaimer{
-            color:#645969;
+
+        .disclaimer {
+            color: #645969;
             padding: 0px;
             font-size: smaller;
         }
+
         section {
             position: absolute;
             bottom: 1vh;
             margin: auto;
             text-overflow: wrap;
-        }   
-        editor, a {
+        }
+
+        editor,
+        a {
             color: #959696;
             font-size: small;
         }
+
         a:hover {
             background-color: #645969;
-            color: #cbfd03;
+            color: #fdfd45;
+            /* classic: #cbfd03 */
         }
-        canvas { 
+
+        canvas {
             width: 100%;
             height: 100%;
-            
+
         }
     </style>
     <script>
-		function display_c(){
+        function display_c() {
 
-			var refresh=1000; // Refresh rate in milli seconds
-			mytime=setTimeout('display_ct()',refresh)
-			}
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
 
-			function display_ct() {
-			var x = new Date()
-			document.getElementById('ct').innerHTML = x;
-			display_c();
-			 }
-	</script>
+        function display_ct() {
+            var x = new Date()
+            document.getElementById('ct').innerHTML = x;
+            display_c();
+        }
+    </script>
 </head>
+
 <body>
     <!-- Sidebar -->
     <div class="frame">
         <div id="editor">
-            <h4 id="content"> Welcome to the Internet</h4>
+            <h4 id="content">🎨🌟 Welcome to the Internet</h4>
             <div id="content">
                 <!-- first link table -->
                 <table>
@@ -125,31 +143,41 @@
                         <tr>
                             <td><a href="https://mail.google.com/" target="_blank">Gmail</a></td>
                             <td><a href="http://discord.com/app" target="_blank">Discord</a></td>
-                            <td><a href="https://home.cunyfirst.cuny.edu/psp/cnyepprd/EMPLOYEE/EMPL/h/?tab=DEFAULT" target="_blank">CUNY</a></td>
+                            <td><a href="https://home.cunyfirst.cuny.edu/psp/cnyepprd/EMPLOYEE/EMPL/h/?tab=DEFAULT"
+                                    target="_blank">CUNY</a></td>
                         </tr>
                         <tr>
                             <td><a href="https://github.com/" target="_blank">GitHub</a></td>
+                            <td><a href="https://cooljobs.apple.com" target="_blank"> Jobs</a></td>
                             <td><a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a></td>
-                            <td><a href="https://ssologin.cuny.edu/cuny.html?resource_url=https%3A%2F%2Fbbhosted.cuny.edu%252Fwebapps%252Fportal%252Fexecute%252Ftabs%252FtabAction%3Ftab_tab_group_id%253D_49_1" target="_blank">Blackboard</a></td>
                         </tr>
                         <tr>
                             <td><a href="https://twitter.com/home?lang=en" target="_blank">Twitter</a></td>
                             <td><a href="https://www.instagram.com/" target="_blank">Instagram</a></td>
-                            <td><a href="https://Netflix.com" target="_blank">Netflix</a></td>
+                            <td><a href="https://Netflix.com" target="_blank">Discovery+</a></td>
                         </tr>
                     </tbody>
                 </table><br>
                 <table>
-                    <th>Apple</th>
+                    <th>Pokémon TCG</th>
                     <tbody>
                         <tr>
-                            <td><a href="https://apple.com/" target="_blank">Store</a></td>
-                            <td><a href="https://people.apple.com" target="_blank">People</a></td>
-                            <td><a href="https://response.apple.com" target="_blank">Response</a></td>
+                            <td><a href="https://www.pokebeach.com" target="_blank">PokéBeach</a></td>
+                            <td><a href="https://www.ebay.com/sch/i.html?_from=R40&_nkw=pokemon+japanese+promo&_sacat=0&_sop=1"
+                                    target="_blank">Buy</a>/<a
+                                    href="https://www.ebay.com/sch/i.html?_from=R40&_nkw=pokemon+japanese+promo&_sacat=0&LH_TitleDesc=0&rt=nc&LH_Sold=1&LH_Complete=1"
+                                    target="_blank">Sell</a></td>
+                            <td><a href="https://www.serebii.net/card/dex/" target="_blank">Serebii</a></td>
                         </tr>
                         <tr>
-                            <td><a href="https://cooljobs.apple.com" target="_blank">Jobs</a></td>
-                            <td><a href="https://mypage.apple.com" target="_blank">myPage</a></td>
+                            <td><a href="https://www.pokemoncenter.com" target="_blank">PokémonCenter</a></td>
+                            <td><a href="https://www.psacard.com/auctionprices" target="_blank">Search</a>/<a
+                                    href="https://www.psacard.com/cert" target="_blank">Verify</a></td>
+                            <td><a href="https://www.pricecharting.com" target="_blank">PriceChart</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.reddit.com/r/PokeInvesting/" target="_blank">PokeInvesting</a></td>
+                            <td><a href="https://www.tcgplayer.com" target="_blank">TCGplayer</a></td>
                         </tr>
                     </tbody>
                 </table><br>
@@ -157,18 +185,20 @@
                     <th>Development</th>
                     <tbody>
                         <tr>
-                            <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">Three.js</a></td>
+                            <td><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene"
+                                    target="_blank">Three.js</a></td>
                             <td><a href="https://threejs.org/editor/" target="_blank">Editor</a></td>
                             <td><a href="https://polyhaven.com/" target="_blank">HDRIs</a></td>
                         </tr>
                         <tr>
                             <td><a href="https://matheowis.github.io/HDRI-to-CubeMap/">CubeMap</a></td>
                             <td><a href="https://github.com/nidorx/matcaps">MatCaps</a></td>
-                            <td><a href="https://marketplace.visualstudio.com/manage/publishers/travistrotto/extensions/atomic-radiation-light/hub?_a=acquisition">VSCE</a></td>
+                            <td><a
+                                    href="https://marketplace.visualstudio.com/manage/publishers/travistrotto/extensions/atomic-radiation-light/hub?_a=acquisition">VSCE</a>
+                            </td>
                         </tr>
                         <tr>
                             <td><a href="https://dev.azure.com/TravisTrotto">Azure</a></td>
-                            <td><a href="https://wix.com">Wix</a></td>
                         </tr>
                     </tbody>
                 </table><br>
@@ -181,46 +211,38 @@
                             <td><a href="https://twitch.tv">Twitch</a></td>
                         </tr>
                         <tr>
-                            
+
                             <td><a href="http://calc.pokemonshowdown.com" target="_blank">Calc</a></td>
                             <td><a href="https://drive.google.com/" target="_blank">Drive</a></td>
                             <td><a href="https://www.tradingview.com/chart/" target="_blank">Stocks</a></td>
                         </tr>
                         <tr>
-                           
-                        </tr>
-                    </tbody>
-                </table><br>
-                <table>
-                    <th>Japanese</th>
-                    <tbody>
-                        <tr>
-                            <td><a href="https://translate.google.com/?sl=ja&tl=en&op=translate&hl=en">Translate</a></td>
+                            <td><a href="https://translate.google.com/?sl=ja&tl=en&op=translate&hl=en">Translate</a>
+                            </td>
                             <td><a href="https://jisho.org" target="_blank">Jisho</a></td>
-                            <td><a href="https://www.japanese.io/" target="_blank">Jap.io</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://www.lingodeer.com/learn-languages/jp/en/learn-japanese-online" target="_blank">LingoDeer</a></td>
-                            
                         </tr>
                     </tbody>
                 </table><br>
             </div>
             <section>
+
                 <body onload=display_ct();>
                     <span id='ct' style="color:white;font-size: 11px;"></span>
                     <!-- <hr> -->
-           
-                <p class="disclaimer">Publishings: 
-                    <a href="http://csicareers.wixsite.com/home" class="disclaimer">CSI Careers</a>
-                    <a href="https://travistrotto.netlify.app" class="disclaimer">Portfolio</a>
-                    <a href="https://travistrotto-interactive.netlify.app" class="disclaimer">eResume</a>
-                    <a href="https://ar-theme.netlify.app" class="disclaimer">ar</a>
-                    <a href="https://marketplace.visualstudio.com/items?itemName=travistrotto.atomic-radiation-light" class="disclaimer">ar-theme</a>
-                    <a href="https://travistrotto.github.io/three.js-simple-startpage/" class="disclaimer">thee.js-startpage</a>
-                    <a href="https://github.com/travistrotto/firefox_startpage" class="disclaimer">bianca-startpage</a>
-                    <a href="https://travistrotto.github.io/smashisland.com/" class="disclaimer">smashisland.com</a>
-                </p>
+
+                    <p class="disclaimer">Publishings:
+                        <a href="http://csicareers.wixsite.com/home" class="disclaimer">CSI Careers</a>
+                        <a href="https://travistrotto.netlify.app" class="disclaimer">Portfolio</a>
+                        <a href="https://travistrotto-interactive.netlify.app" class="disclaimer">eResume</a>
+                        <a href="https://ar-theme.netlify.app" class="disclaimer">ar</a>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=travistrotto.atomic-radiation-light"
+                            class="disclaimer">ar-theme</a>
+                        <a href="https://travistrotto.github.io/three.js-simple-startpage/"
+                            class="disclaimer">thee.js-startpage</a>
+                        <a href="https://github.com/travistrotto/firefox_startpage"
+                            class="disclaimer">bianca-startpage</a>
+                        <a href="https://travistrotto.github.io/smashisland.com/" class="disclaimer">smashisland.com</a>
+                    </p>
             </section>
             <div id="ui">
                 <!-- <button type="button" data-size="5%">small</button>
@@ -235,121 +257,120 @@
 
     <!-- three.js -->
     <script type="module">
-    import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
-      
-    // const lighterColor = '#4A4A4A'
-    const lighterColor = '#969696'
-    const generate = Math.round((Math.random()+ 0.5)*2)
-    const rand2 = Math.round((Math.random() * 40) + 140) 
+        import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
 
-    // Renderer & Canvas
-    const renderer = new THREE.WebGLRenderer({alpha: true, canvas: document.querySelector("canvas")});
+        // const lighterColor = '#4A4A4A'
+        const lighterColor = '#969696'
+        const generate = Math.round((Math.random() + 0.5) * 2)
+        const rand2 = Math.round((Math.random() * 40) + 140)
 
-    // Scene
-    const scene = new THREE.Scene();
-    
-    // Shapes 1, 2
-    const geometry = new THREE.TorusKnotGeometry( 180, 50, 200, 200, generate);
-    
-    // Transparent material
-    // const material = new THREE.MeshBasicMaterial({ color: lighterColor })
-    // material.opacity = 0.1
+        // Renderer & Canvas
+        const renderer = new THREE.WebGLRenderer({ alpha: true, canvas: document.querySelector("canvas") });
 
-    // Cool material
-    const material = new THREE.MeshNormalMaterial()
-    material.flatShading = true
-    material.opacity = 0.25
+        // Scene
+        const scene = new THREE.Scene();
 
-    // Shapes 3
-    const geometry2 = new THREE.SphereGeometry(30, 30, 30)
-    for(let i = 0; i < 144; i++)
-    {
-        const orb = new THREE.Mesh(geometry2, material)
-        orb.position.x = (Math.random() - 0.5) * 350
-        orb.position.y = (Math.random() - 0.5) * 350
-        orb.position.z = (Math.random() - 0.5) * 350
-        
-        // orb.rotation.z = 3
-        orb.rotation.x = Math.random() * Math.PI 
-        orb.rotation.y = Math.random() * Math.PI
+        // Shapes 1, 2
+        const geometry = new THREE.TorusKnotGeometry(180, 50, 200, 200, generate);
 
-        const scale = Math.random() + 0.20
-        orb.scale.set(scale, scale, scale)
-        if(generate == 3 ){
-            
-            scene.add(orb);
-            
+        // Transparent material
+        // const material = new THREE.MeshBasicMaterial({ color: lighterColor })
+        // material.opacity = 0.1
+
+        // Cool material
+        const material = new THREE.MeshNormalMaterial()
+        material.flatShading = true
+        material.opacity = 0.25
+
+        // Shapes 3
+        const geometry2 = new THREE.SphereGeometry(30, 30, 30)
+        for (let i = 0; i < 144; i++) {
+            const orb = new THREE.Mesh(geometry2, material)
+            orb.position.x = (Math.random() - 0.5) * 350
+            orb.position.y = (Math.random() - 0.5) * 350
+            orb.position.z = (Math.random() - 0.5) * 350
+
+            // orb.rotation.z = 3
+            orb.rotation.x = Math.random() * Math.PI
+            orb.rotation.y = Math.random() * Math.PI
+
+            const scale = Math.random() + 0.20
+            orb.scale.set(scale, scale, scale)
+            if (generate == 3) {
+
+                scene.add(orb);
+
+            }
         }
-    }
 
-    // Transparency 
-    material.transparent = true
+        // Transparency 
+        material.transparent = true
 
-    const mesh = new THREE.Mesh(geometry, material);
-    
-    if(generate < 3){
-        scene.add(mesh);
-    } 
-    // scene.add(mesh);
-      
-    // Sizes
-    function resizeCanvasToDisplaySize() {
-        const canvas = renderer.domElement;
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-      
-    // you must pass false here or three.js sadly fights the browser
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-    
+        const mesh = new THREE.Mesh(geometry, material);
 
-    // set render target sizes here
-    }
+        if (generate < 3) {
+            scene.add(mesh);
+        }
+        // scene.add(mesh);
 
-    // Lights
-    const light1 = new THREE.PointLight(0xff80C0, 2, 0);
-    light1.position.set(200, 100, 300);
-    scene.add(light1);
+        // Sizes
+        function resizeCanvasToDisplaySize() {
+            const canvas = renderer.domElement;
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
 
-    // Camera
-    const  camera = new THREE.PerspectiveCamera(70, 2, 1, 1000);
-    camera.position.z = 400;
-    // camera.position.y = 400;
+            // you must pass false here or three.js sadly fights the browser
+            renderer.setSize(width, height, false);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
 
-    
-    // Animate
-    const clock = new THREE.Clock()
-    const tick = () =>
-    {
-        const elapsedTime = clock.getElapsedTime()
 
-        // Rotate objects
-        mesh.rotation.x = .25 * elapsedTime
-        mesh.rotation.y = .5 * elapsedTime
+            // set render target sizes here
+        }
 
-        if(generate == 3){
-        camera.position.x =  Math.tan(elapsedTime/4) * 20
-        camera.position.y =  Math.sin(elapsedTime) * 10
-        camera.position.z =  Math.cos(elapsedTime) * 10
-    }
-        // Render
-        renderer.render(scene, camera)
-        window.requestAnimationFrame(tick)
-    }
-    tick()
+        // Lights
+        const light1 = new THREE.PointLight(0xff80C0, 2, 0);
+        light1.position.set(200, 100, 300);
+        scene.add(light1);
 
-    // Button Functions
-    const editorElem = document.querySelector("#editor");
-    document.querySelectorAll('button').forEach(elem => {
-        elem.addEventListener('click', () => {
-            editorElem.style.flexBasis = elem.dataset.size;
+        // Camera
+        const camera = new THREE.PerspectiveCamera(70, 2, 1, 1000);
+        camera.position.z = 400;
+        // camera.position.y = 400;
+
+
+        // Animate
+        const clock = new THREE.Clock()
+        const tick = () => {
+            const elapsedTime = clock.getElapsedTime()
+
+            // Rotate objects
+            mesh.rotation.x = .25 * elapsedTime
+            mesh.rotation.y = .5 * elapsedTime
+
+            if (generate == 3) {
+                camera.position.x = Math.tan(elapsedTime / 4) * 20
+                camera.position.y = Math.sin(elapsedTime) * 10
+                camera.position.z = Math.cos(elapsedTime) * 10
+            }
+            // Render
+            renderer.render(scene, camera)
+            window.requestAnimationFrame(tick)
+        }
+        tick()
+
+        // Button Functions
+        const editorElem = document.querySelector("#editor");
+        document.querySelectorAll('button').forEach(elem => {
+            elem.addEventListener('click', () => {
+                editorElem.style.flexBasis = elem.dataset.size;
+            });
         });
-    });
 
-    // Resize
-    const resizeObserver = new ResizeObserver(resizeCanvasToDisplaySize);
-    resizeObserver.observe(renderer.domElement, {box: 'content-box'});
-    </script> 
+        // Resize
+        const resizeObserver = new ResizeObserver(resizeCanvasToDisplaySize);
+        resizeObserver.observe(renderer.domElement, { box: 'content-box' });
+    </script>
 </body>
+
 </html>
